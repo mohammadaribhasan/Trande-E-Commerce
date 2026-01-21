@@ -6,7 +6,7 @@ import SearchBar from "./SearchBar";
 
 export default function Navbar() {
   return (
-    <nav className="w-full flex items-center justify-between border-b border-gray-200 pb-4">
+    <nav className="w-full flex items-center justify-between border-b border-gray-200 py-4">
       {/* left */}
       <Link href="/" className="flex items-center">
         <Image
