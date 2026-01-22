@@ -1,6 +1,7 @@
 import { ProductsType } from "@/types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
+import { Suspense } from "react";
 // Dummy product data
 const products: ProductsType = [
   {
@@ -117,15 +118,18 @@ const products: ProductsType = [
     sizes: ["s", "m", "l", "xl"],
     colors: ["green", "blue"],
     images: {
-      green: "/products/7gr.png",
-      blue: "/products/7b.png",
+      green: "/products/8gr.png",
+      blue: "/products/8b.png",
     },
   },
 ];
 export default function ProductList() {
   return (
     <div className="w-ful mx-auto ">
-      <Categories />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Categories />
+      </Suspense>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-12">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
