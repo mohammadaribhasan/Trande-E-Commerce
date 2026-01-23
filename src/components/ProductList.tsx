@@ -2,6 +2,7 @@ import { ProductsType } from "@/types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
 import { Suspense } from "react";
+import Link from "next/link";
 // Dummy product data
 const products: ProductsType = [
   {
@@ -123,7 +124,7 @@ const products: ProductsType = [
     },
   },
 ];
-export default function ProductList() {
+export default function ProductList({ category }: { category: string | null }) {
   return (
     <div className="w-ful mx-auto ">
       <Suspense fallback={<div>Loading...</div>}>
@@ -135,6 +136,13 @@ export default function ProductList() {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <Link
+        href={category ? `/products/?category=${category}` : "/products"}
+        className="flex justify-end mt-4 underline text-sm text-gray-500"
+      >
+        {" "}
+        View All Products
+      </Link>
     </div>
   );
 }

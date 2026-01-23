@@ -24,7 +24,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
       <Link href={`/products/${product.id}`}>
         <div className="relative aspect-2/3">
           <Image
-            src={product.images[product.colors[0]]}
+            src={product.images[ProductTypes.color]}
             alt={product.name}
             fill
             className="object-cover hover:scale-105 transition-transform duration-300"
@@ -78,7 +78,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
         </div>
         {/* Price and add to cart */}
         <div className="flex items-center justify-between">
-          <p className="font-medium">{product.price.toFixed(2)}</p>
+          <p className="font-medium">{product.price.toFixed(2)} $</p>
           <button className="ring-1 ring-gray-200 shadow-lg rounded-md px-2 py-1 text-sm cursor-pointer hover:text-white hover:bg-black transition-all duration-300 flex items-center gap-2">
             <ShoppingCart className="w-4 h-4" />
             Add to Cart
