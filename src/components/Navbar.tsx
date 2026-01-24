@@ -32,7 +32,12 @@ export default function Navbar() {
         <Link href="/cart">
           <ShoppingCart className="w-4 h-4 text-gray-600" />
         </Link>
-        <Link href="login">Sign in</Link>
+        <Link
+          className="border-green-600 rounded-3xl p-2 bg-[#FFC83D] hover:scale-105 duration-300 text-black font-medium"
+          href="login"
+        >
+          Sign in
+        </Link>
       </div>
     </nav>
   );
