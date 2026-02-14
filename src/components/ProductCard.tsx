@@ -22,19 +22,25 @@ export default function ProductCard({ product }: { product: ProductType }) {
   return (
     <div className="shadow-lg rounded-lg overflow-hidden">
       <Link href={`/products/${product.id}`}>
-        <div className="relative aspect-2/3">
-          <Image
-            src={product.images[ProductTypes.color]}
-            alt={product.name}
-            fill
-            className="object-cover hover:scale-105 transition-transform duration-300"
-          />
+        <div className="relative aspect-2/3 bg-gray-100 overflow-hidden">
+          {product?.images?.[ProductTypes.color] ? (
+            <Image
+              src={product.images[ProductTypes.color]}
+              alt={product?.name || "Product Image"}
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-300"
+            />
+          ) : (
+            <div className="flex items-center justify-center h-full text-gray-400 text-xs">
+              No Image available
+            </div>
+          )}
         </div>
       </Link>
       {/* Product details */}
       <div className="flex flex-col gap-4 p-4">
-        <h1 className="font-medium">{product.name}</h1>
-        <p className="text-sm text-gray-500">{product.shortDescription}</p>
+        <h1 className="font-medium">{product?.name}</h1>
+        <p className="text-sm text-gray-500">{product?.shortDescription}</p>
         {/* Product types */}
         <div className="flex items-center gap-4 text-xs">
           {/* size */}

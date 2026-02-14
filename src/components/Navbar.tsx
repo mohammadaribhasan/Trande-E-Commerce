@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { Bell, Home, ShoppingCart } from "lucide-react";
+import { Bell, Home } from "lucide-react";
 import Image from "next/image";
 import SearchBar from "./SearchBar";
+import ShoppingCarticon from "./ShoppingCarticon";
 
 export default function Navbar() {
   return (
@@ -29,9 +30,7 @@ export default function Navbar() {
         <Link href="/notifications">
           <Bell className="w-4 h-4 text-gray-600" />
         </Link>
-        <Link href="/cart">
-          <ShoppingCart className="w-4 h-4 text-gray-600" />
-        </Link>
+        <ShoppingCarticon />
         <Link
           className="border-green-600 rounded-3xl p-2 bg-[#FFC83D] hover:scale-105 duration-300 text-black font-medium"
           href="login"

@@ -1,8 +1,9 @@
 import { ProductsType } from "@/types";
 import Categories from "./Categories";
-import ProductCard from "./ProductCard";
 import { Suspense } from "react";
 import Link from "next/link";
+import ProductCard from "./ProductCard";
+import Filter from "./Filter";
 // Dummy product data
 const products: ProductsType = [
   {
@@ -124,16 +125,23 @@ const products: ProductsType = [
     },
   },
 ];
-export default function ProductList({ category }: { category: string | null }) {
+export default function ProductList({
+  category,
+  params,
+}: {
+  category: string;
+  params: "homepage" | "products";
+}) {
   return (
     <div className="w-ful mx-auto ">
       <Suspense fallback={<div>Loading...</div>}>
         <Categories />
+        {params === "products" && <Filter />}
       </Suspense>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-12">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {products?.map((product) => (
+          <ProductCard key={product?.id} product={product} />
         ))}
       </div>
       <Link
