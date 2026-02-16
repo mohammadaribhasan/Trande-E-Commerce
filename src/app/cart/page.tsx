@@ -126,10 +126,10 @@ export default function page() {
                   {/* image */}
                   <div className="relative w-32 h-32 bg-gray-50 rounded-lg overflow-hidden">
                     <Image
-                      src={item.images[item.selectedColor] || null}
-                      alt={item.name}
+                      src={item?.images[item.selectedColor] || null}
+                      alt={item?.name}
                       fill
-                      classname="object-contain"
+                      className="object-contain"
                     />
                   </div>
                   {/* item details */}
@@ -157,7 +157,7 @@ export default function page() {
               </div>
             ))
           ) : activeStep === 2 ? (
-            <ShippingForm />
+            <ShippingForm setShippingForm={setShippingForm} />
           ) : activeStep === 3 && shippingform ? (
             <PaymentForm />
           ) : (
